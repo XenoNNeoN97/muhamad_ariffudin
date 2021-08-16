@@ -1,283 +1,296 @@
 
-<!doctype html>
-<html>
-<head>
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Export Booking Excel to Coprar Converter</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/jszip.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.8.0/xlsx.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<script type="text/javascript">
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
 
-    parseExcel = function(file) {
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-        var data = e.target.result;
-        var workbook = XLSX.read(data, {
-            type: 'binary'
-        });
-
-        workbook.SheetNames.forEach(function(sheetName) {
-
-            var XL_row_object = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
-
-            var line = 0;
-            var contcount = 0;
-            var allRows = XL_row_object.split(/\r?\n|\r/);
+        <link rel="stylesheet" href="assets/css/styles.css">
         
-            //var table = '<table>';
-            var dt = new Date();
-            var refno = get_date_str(dt, "");
-            var edi = "UNB+UNOA:2+KMT+"+$("#recv_code").val()+"+"+get_date_str(dt, "daterawonly")+":"+get_date_str(dt, "timetominrawonly")+"+"+refno+"'\n"; 
-            edi += "UNH+"+refno+"+COPRAR:D:00B:UN:SMDG21+LOADINGCOPRAR'\n"; line++;
-                            
-            //process header
-            var report_dt = ""; var voyage = ""; var vslname = ""; var callsign = ""; var opr = "";
-            for (var singleRow = 0; singleRow < allRows.length; singleRow++) {
-                if(singleRow>6) break;
-                let rowCells = allRows[singleRow].split(',');
-                if(singleRow==1) {
-                    let tmpdt = rowCells[1].split('/');
-                    let day = tmpdt[0];
-                    let month = tmpdt[1];
-                    let tmpyear = tmpdt[2].split(' ');
-                    let report_date = new Date(tmpyear[0] + "-" + month + "-" + day + " " + tmpyear[1]);
-                    report_dt = get_date_str(report_date, "");
-                }
-                if(singleRow==3) {
-                    if(typeof rowCells[3]!="undefined") {
-                        let tmp = rowCells[3].split('/');
-                        voyage = tmp[0];
-                        callsign = tmp[1];
-                        opr = tmp[2];
-                        vslname = rowCells[1];
-                    }
-                }
-            }                
-            edi += "BGM+45+"+report_dt+"+5'\n"; line++;
-            edi += "TDT+20+"+voyage+"+1++172:"+opr+"+++"+$("#callsign_code").val()+":103::"+vslname+"'\n"; line++;
-            edi += "RFF+VON:"+voyage+"'\n"; line++;
-            edi += "NAD+CA+"+opr+"'\n"; line++;
-            let tmp; let dim;
-            for (singleRow = 0; singleRow < allRows.length; singleRow++) {
-            if(typeof allRows[singleRow]!="undefined") {
-                
-                //let rowCells = allRows[singleRow].split(',');
-                let rowCells = CSVtoArray(allRows[singleRow]);
-                if(singleRow>7) {
-                    contcount++;
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>Muhamad Ariffudin</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="#home" class="nav__logo">Muhamad Ariffudin</a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#home" class="nav__link active">Home</a></li>
+                        <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
+                        <li class="nav__item"><a href="#experience" class="nav__link">Experience</a></li>
+                        <li class="nav__item"><a href="#project" class="nav__link">Project</a></li>
+                        <li class="nav__item"><a href="#skills" class="nav__link"> Skills</a></li>
+                        <li class="nav__item"><a href="#contact" class="nav__link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== HOME =====-->
+            <section class="home bd-grid" id="home">
+                <div class="home__data">
+                    <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Ariffudin</span><br> Software Engineer</h1>
+
+                    <a href="assets/resume/Ariffudin.pdf" target="_blank" class="button">Resume</a>
+                </div>
+
+                <div class="home__social">
+                    <a href="https://www.linkedin.com/in/muhamad-ariffudin/" target="_blank" class="home__social-icon"><i class='bx bxl-linkedin'></i></a>
+                    <a href="https://github.com/XenoNNeoN97" target="_blank" class="home__social-icon"><i class='bx bxl-github'></i></a>
+                    <a href="https://www.fiverr.com/users/muhamadariffudi/" target="_blank" class="home__social-icon"><i class='bx bxl-behance'></i></a>
+                </div>
+
+                <div class="home__img">    
+                    <img src="assets/img/lol.png" alt="">
+                </div>
+            </section>
+
+            <!--===== ABOUT =====-->
+            <section class="about section " id="about">
+                <h2 class="section-title">About</h2>
+
+                <div class="about__container bd-grid">
+                    <div class="about__img">
+                        <img src="assets/img/lol2.png" alt="">
+                    </div>
                     
-                    //rowCells[3] //5 - F, 4 - E
-                    let fe = "5";
-                    if(typeof rowCells[3]!="undefined" && rowCells[3]=="E") fe = "4";
+                    <div>
+                        <h2 class="about__subtitle">I'am Muhamad Ariffudin</h2>
+                        <p class="about__text">Passionate Software Engineering graduate from Asia Pacific University. Looking forward to apply my knowledge and skills to become a contributor to your company. I am eager to be part of your organization and grow professionally.</p>           
+                    </div>                                   
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="experience">
+                <h2 class="section-title">Experience</h2>
+
+                    <div class="skills__container bd-grid">
+                        <div class="skills__data">
+                            <div>
+                                <p class= "skills__icon" h3>SRG Asia Pacific</h3></p>
+                                <span class="skills__names">Kuala Lumpur - Malaysia</span>
+                                <div class="skills__calendar">
+                                    <i class="uil uil-calendar-alt skills__icon"></i>
+                                    Sep 2020 - Present
+                                </div>
+                                <div class="skills__bar skills__html">   
+                                </div>  
+                            </div>
+                            <div>
+                                <span class="skills__percentage">1 Year</span>  
+                            </div> 
+                        </div>
+
+                        <div class="skills__data">
+                            <div>
+                                <p class= "skills__icon" h3>Freelance</h3></p>
+                                <span class="skills__names">Kuala Lumpur - Malaysia</span>
+                                <div class="skills__calendar">
+                                    <i class="uil uil-calendar-alt skills__icon"></i>
+                                    Jun 2020 - Present
+                                </div>
+                                <div class="skills__bar skills__html">   
+                                </div>   
+                            </div>
+                            <div>
+                                <span class="skills__percentage">1 Year</span>  
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills__container bd-grid"> 
+                        <div class="skills__data">
+                            <div>
+                                <p class= "skills__icon" h3>George Medical Gateway</h3></p>
+                                <span class="skills__names">Kuala Lumpur - Malaysia</span>
+                                <div class="skills__calendar">
+                                    <i class="uil uil-calendar-alt skills__icon"></i>
+                                    Sep 2019 - Jun 2020
+                                </div>
+                                <div class="skills__bar skills__html">   
+                                </div>
+                            </div>
+                            <div>
+                                <span class="skills__percentage">10 Month</span>  
+                            </div>
+                        </div>
+                        
+                        <div class="skills__data">
+                            <div>
+                                <p class= "skills__icon" h3>George Medical Gateway [intern]</h3></p>
+                                <span class="skills__names">Kuala Lumpur - Malaysia</span>
+                                <div class="skills__calendar">
+                                    <i class="uil uil-calendar-alt skills__icon"></i>
+                                    Jun 2019 - Sep 2019
+                                </div>
+                                <div class="skills__bar skills__html">   
+                                </div> 
+                            </div>
+                            <div>
+                                <span class="skills__percentage">4 Month</span>
+                            </div>    
+                        </div>
+                    </div>
+                        
+                    <div class="skills__container bd-grid">  
+                        <div class="skills__data">
+                            <div>
+                                <p class= "skills__icon" h3>Web Creative Solution</h3></p>
+                                <span class="skills__names">Johor Bahru - Malaysia</span>
+                                <div class="skills__calendar">
+                                    <i class="uil uil-calendar-alt skills__icon"></i>
+                                    May 2017 - Apr 2018
+                                </div>
+                                <div class="skills__bar skills__html">   
+                                </div>   
+                            </div>
+                            <div>
+                                <span class="skills__percentage">1 Year</span>
+                            </div>
+                        </div>
+
+                        <div class="skills__data">
+                            <div>
+                                <p class= "skills__icon" h3>Dream Space[intern]</h3></p>
+                                <span class="skills__names">Johor Bahru - Malaysia</span>
+                                <div class="skills__calendar">
+                                    <i class="uil uil-calendar-alt skills__icon"></i>
+                                    Feb 2017 - May 2017
+                                </div>
+                                <div class="skills__bar skills__html">   
+                                </div>   
+                            </div>
+                            <div>
+                                <span class="skills__percentage">4 Month</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--===== SKILLS =====-->
+            <section class="skills section" id="skills">
+                <h2 class="section-title">Skills</h2>
+
+                <div class="skills__container bd-grid">          
+                    <div>
+                        <h2 class="skills__subtitle">Technical Skills</h2>
+                        
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <span class="skills__name">HTML5, CSS, JAVASCRIPT, PHP, PYTHON, JAVA, VB.NET</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <span class="skills__name">C#, C, C++, ASP.NET, JEE, REACT.JS, NODE.JS, DJANGO</span>
+                            </div>
+                            <div class="skills__bar skills__html">   
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <span class="skills__name">LARAVEL, EXPRESS, REACT NATIVE, FLUTTER, IONIC, SPRING</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+                            </div>
+                        </div>
+                        <div class="skills__data">
+                            <div class="skills__names">
+                                <span class="skills__name">MS SQL, MySQL, FIREBASE, MONGODB, MS AZURE, AWS</span>
+                            </div>
+                            <div class="skills__bar skills__html">
+                            </div>
+                        </div>
+                    </div>
                     
-                    //2 TS - N, 6 TS - Y
-                    let type = "2";
-                    if(typeof rowCells[11]!="undefined" && rowCells[11]=="Y") type = "6";       
-                    if(typeof rowCells[1]!="undefined" && typeof rowCells[7]!="undefined") { edi += "EQD+CN+"+rowCells[1]+"+"+rowCells[7]+":102:5++"+type+"+"+fe+"'\n"; line++; }
-                    if(typeof rowCells[6]!="undefined") { edi += "LOC+11+"+rowCells[5]+":139:6'\n"; line++; }
-                    if(typeof rowCells[6]!="undefined") { edi += "LOC+7+"+rowCells[6]+":139:6'\n"; line++; }
-                    if(typeof rowCells[19]!="undefined") { edi += "LOC+9+"+rowCells[19]+":139:6'\n"; line++; }
-                    if(typeof rowCells[13]!="undefined") { edi += "MEA+AAE+VGM+KGM:"+rowCells[13]+"'\n"; line++; }
-                    if(typeof rowCells[17]!="undefined" && $.trim(rowCells[17])!="" && $.trim(rowCells[17])!="/") {
-                    tmp = rowCells[17].split(',');
-                    for(let i=0; i<tmp.length; i++) {
-                        dim = rowCells[17].split('/');
-                        if($.trim(dim[0])=="OF") {
-                            edi += "DIM+5+CMT:"+$.trim(dim[1])+"'\n"; line++;
-                        }
-                        if($.trim(dim[0])=="OB") {
-                            edi += "DIM+6+CMT:"+$.trim(dim[1])+"'\n"; line++;
-                        }
-                        if($.trim(dim[0])=="OR") {
-                            edi += "DIM+7+CMT::"+$.trim(dim[1])+"'\n"; line++;
-                        }
-                        if($.trim(dim[0])=="OL") {
-                            edi += "DIM+8+CMT::"+$.trim(dim[1])+"'\n"; line++;
-                        }
-                        if($.trim(dim[0])=="OH") {
-                            edi += "DIM+9+CMT:::"+$.trim(dim[1])+"'\n"; line++;
-                        }
-                    }
-                    }
-                    if(typeof rowCells[15]!="undefined" && $.trim(rowCells[15])!="" && $.trim(rowCells[15])!="/") {
-                    let temperature = rowCells[15];
-                    temperature = temperature.replace(" ", "");
-                    temperature = temperature.replace("C", "");
-                    temperature = temperature.replace("+", "");
-                    edi += "TMP+2+"+temperature+":CEL'\n"; line++;
-                    }
-                    if(typeof rowCells[25]!="undefined" && $.trim(rowCells[25])!="" && $.trim(rowCells[25])!="/") {
-                    let tmp = rowCells[25].split(',');
-                    if(tmp[0]=="L") {
-                        edi += "SEL+"+tmp[1]+"+CA'\n"; line++; //seal L - CA, S - SH, M - CU
-                    }
-                    if(tmp[0]=="S") {
-                        edi += "SEL+"+tmp[1]+"+SH'\n"; line++; //seal L - CA, S - SH, M - CU
-                    }
-                    if(tmp[0]=="M") {
-                        edi += "SEL+"+tmp[1]+"+CU'\n"; line++; //seal L - CA, S - SH, M - CU
-                    }
-                    }
-                    if(typeof rowCells[8]!="undefined") { edi += "FTX+AAI+++"+rowCells[8]+"'\n"; line++; }                      
-                    
-                    if(typeof rowCells[12]!="undefined" && $.trim(rowCells[12])!="" && $.trim(rowCells[12])!="/") {
-                    edi += "FTX+AAA+++"+$.trim(cleanString(rowCells[12]))+"'\n"; line++;
-                    }
-                    if(typeof rowCells[18]!="undefined" && $.trim(rowCells[18])!="" && $.trim(rowCells[18])!="/") {
-                    edi += "FTX+HAN++"+rowCells[18]+"'\n"; line++;
-                    }
-                    if(typeof rowCells[14]!="undefined" && rowCells[14]!="" && $.trim(rowCells[14])!="/") {
-                    tmp = rowCells[14].split('/');
-                    edi += "DGS+IMD+"+tmp[0]+"+"+tmp[1]+"'\n"; line++;
-                    }
-                    if(typeof rowCells[2]!="undefined" && $.trim(rowCells[2])!="") { edi += "NAD+CF+"+rowCells[2]+":160:ZZZ'\n"; line++; } //box 
-                }                    
-            }
-            } 
-            contcount--;
-            edi += "CNT+16:"+contcount+"'\n"; line++; line++;
-            edi += "UNT+"+line+"+"+refno+"'\n";
-            edi += "UNZ+1+"+refno+"'";
-            //table += '</tbody>';
-            //table += '</table>';
-            $('#my_file_output').val(edi);
+                    <div>              
+                        <img src="assets/img/work3.jpg" alt="" class="skills__img">
+                    </div>
+                </div>
+            </section>
 
-        })
+            <!--===== WORK =====-->
+            <section class="work section" id="project">
+                <h2 class="section-title">Project</h2>
 
-        };
+                <div class="work__container bd-grid">
+                    <div class="work__img">
+                        <a href="https://my.healtopedia.com/" target="_blank">
+                        <img src="assets/img/work1.jpg" alt=""></a> 
+                    </div>
+                    <div class="work__img">
+                        <a href="https://www.khaizan.com/" target="_blank">
+                        <img src="assets/img/work2.jpg" alt=""></a>
+                    </div>
+                    <div class="work__img">
+                        <a href="https://www.w3schools.com" target="_blank">
+                        <img src="assets/img/work3.jpg" alt=""></a>
+                    </div>
+                    <div class="work__img">
+                        <a href="https://www.w3schools.com" target="_blank">
+                        <img src="assets/img/work4.jpg" alt=""></a>
+                    </div>
+                    <div class="work__img">
+                        <a href="https://www.w3schools.com" target="_blank">
+                        <img src="assets/img/work5.jpg" alt=""></a>
+                    </div>
+                    <div class="work__img">
+                        <a href="https://www.w3schools.com" target="_blank">
+                        <img src="assets/img/work6.jpg" alt=""></a>
+                    </div>
+                </div>
+            </section>
 
-        reader.onerror = function(ex) {
-        console.log(ex);
-        };
+            <!--===== CONTACT =====-->
+            <section class="contact section" id="contact">
+                <h2 class="section-title">Contact</h2>
 
-        reader.readAsBinaryString(file);
-    };
+                <div class="contact__container bd-grid">
+                    <form action="https://formsubmit.co/muhamadariffudin49@gmail.com" method="POST" class="contact__form">
+                        <input type="text" placeholder="Name" class="contact__input">
+                        <input type="mail" placeholder="Email" class="contact__input">
+                        <textarea name="" id="" cols="0" rows="10" class="contact__input"></textarea>
+                        <input type="button" value="Submit" class="contact__button button">
+                    </form>
+                </div>
+            </section>
+        </main>
 
-    var oFileIn;
-
-    $(function() {
-        oFileIn = document.getElementById('my_file_input');
-        if(oFileIn.addEventListener) {
-            oFileIn.addEventListener('change', filePicked, false);
-        }
-    });
-
-
-    function filePicked(oEvent) {
-        // Get The File From The Input
-        var oFile = oEvent.target.files[0];
-        var sFilename = oFile.name;
-        parseExcel(oFile)
-        
-    }
-
-    function copy() {
-        /* Get the text field */
-        var copyText = document.getElementById("ediholder");
-
-        /* Select the text field */
-        copyText.select();
-        copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-        /* Copy the text inside the text field */
-        document.execCommand("copy");
-
-        /* Alert the copied text */
-        alert("Text Copied!");
-    } 
-
-    function get_date_str(d, type) {
-        var now = d;
-        var dt = now.getDate();
-        dt = (String(dt).length<2)? String("0") + String(dt) : dt;
-        var hrs = now.getHours();
-        hrs = (String(hrs).length<2)? String("0") + String(hrs) : hrs;
-        var min = now.getMinutes();
-        min = (String(min).length<2)? String("0") + String(min) : min;
-        var sec = now.getSeconds();
-        sec = (String(sec).length<2)? String("0") + String(sec) : sec;
-        var mth = (now.getMonth() + 1);
-        mth = (String(mth).length<2)? String("0") + String(mth) : mth;
-        if(type=="daterawonly") {
-            return now.getFullYear()+''+String(mth)+''+String(dt);
-        } else if(type=="timetominrawonly"){
-            return String(hrs)+''+String(min);
-        } else {
-            return now.getFullYear()+''+String(mth)+''+String(dt)+''+String(hrs)+''+String(min)+''+String(sec);
-        }
-        //return now.getHours()+':'+String(min)+':'+String(sec);
-    }
-
-    function CSVtoArray(text) {
-        var re_valid = /^\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*(?:,\s*(?:'[^'\\]*(?:\\[\S\s][^'\\]*)*'|"[^"\\]*(?:\\[\S\s][^"\\]*)*"|[^,'"\s\\]*(?:\s+[^,'"\s\\]+)*)\s*)*$/;
-        var re_value = /(?!\s*$)\s*(?:'([^'\\]*(?:\\[\S\s][^'\\]*)*)'|"([^"\\]*(?:\\[\S\s][^"\\]*)*)"|([^,'"\s\\]*(?:\s+[^,'"\s\\]+)*))\s*(?:,|$)/g;
-
-        // Return NULL if input string is not well formed CSV string.
-        if (!re_valid.test(text)) return null;
-
-        var a = []; // Initialize array to receive values.
-        text.replace(re_value, // "Walk" the string using replace with callback.
-            function(m0, m1, m2, m3) {
-
-                // Remove backslash from \' in single quoted values.
-                if (m1 !== undefined) a.push(m1.replace(/\\'/g, "'"));
-
-                // Remove backslash from \" in double quoted values.
-                else if (m2 !== undefined) a.push(m2.replace(/\\"/g, '"'));
-                else if (m3 !== undefined) a.push(m3);
-                return ''; // Return empty string.
-            });
-
-        // Handle special case of empty last value.
-        if (/,\s*$/.test(text)) a.push('');
-        return a;
-    };
-
-    function cleanString(input) {
-        var output = "";
-        for (var i=0; i<input.length; i++) {
-            if (input.charCodeAt(i) <= 127) {
-                output += input.charAt(i);
-            }
-        }
-        return output;
-    }
-
-    </script>
-</head>
-<body>
-    <?php
-        echo '<script type="text/javascript">jsFunction();</script>';
-    ?>
-
-<div class="container">
-    <div class="card" style="">
-        <div class="card-body">
-            <h5 class="card-title">Export Booking Excel to Coprar Converter</h5>
-            <div class="form-group">
-                <label for="recv_code">Receiver Code:</label><input class="form-control" type="text" id="recv_code" value="" required>
-                <p><small>Please change before file select.</small></p>
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">Muhamad Ariffudin</p>
+            <div class="footer__social">
+                <a href="https://www.facebook.com/" target="_blank" class="footer__icon"><i class='bx bxl-facebook' ></i></a>
+                <a href="https://www.instagram.com/" target="_blank" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
+                <a href="https://twitter.com/home?lang=en" target="_blank" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
             </div>
-            <div class="form-group">
-                <label for="recv_code">Callsign Code:</label><input class="form-control" type="text" id="callsign_code" value="" required>
-                <p><small>Please change before file select.</small></p>
-            </div>
-            <div class="form-group">
-                <label for="my_file_input">Export booking excel file:</label><input class="form-control" type="file" id="my_file_input" />
-                
-            </div>
-            <div class="form-group"><textarea class="form-control" rows="20" cols="40" id='my_file_output'></textarea></div>
-        </div>
-    </div>
-</div>
+            <p>&#169; 2021 copyright all right reserved</p>
+        </footer>
 
-</body>
+
+        <!--===== SCROLL REVEAL =====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
 </html>
