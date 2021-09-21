@@ -246,7 +246,7 @@
                         <img src="assets/img/work3.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
-                        <a href="https://www.w3schools.com" target="_blank">
+                        <a href="https://mommyhappygroup.com/" target="_blank">
                         <img src="assets/img/work4.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
