@@ -242,7 +242,7 @@
                         <img src="assets/img/work2.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
-                        <a href="https://www.w3schools.com" target="_blank">
+                        <a href="https://www.samuraipaint.jp/" target="_blank">
                         <img src="assets/img/work3.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
