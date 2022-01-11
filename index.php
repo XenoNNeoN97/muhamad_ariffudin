@@ -116,7 +116,7 @@
                     <div class="skills__container bd-grid"> 
                         <div class="skills__data">
                             <div>
-                                <p class= "skills__icon" h3>George Medical Gateway</h3></p>
+                                <p class= "skills__icon" h3>George Healthcare Berhad</h3></p>
                                 <span class="skills__names">Kuala Lumpur - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
@@ -132,7 +132,7 @@
                         
                         <div class="skills__data">
                             <div>
-                                <p class= "skills__icon" h3>George Medical Gateway [intern]</h3></p>
+                                <p class= "skills__icon" h3>George Healthcare Berhad [intern]</h3></p>
                                 <span class="skills__names">Kuala Lumpur - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
@@ -193,7 +193,7 @@
                         
                         <div class="skills__data">
                             <div class="skills__names">
-                                <span class="skills__name">HTML5, CSS, JAVASCRIPT, PHP, PYTHON, JAVA, VB.NET</span>
+                                <span class="skills__name">HTML5, CSS, JAVASCRIPT, PHP, PYTHON, JAVA, VB.NET, UX/UI</span>
                             </div>
                             <div class="skills__bar skills__html">
 
@@ -201,21 +201,21 @@
                         </div>
                         <div class="skills__data">
                             <div class="skills__names">
-                                <span class="skills__name">C#, C, C++, ASP.NET, JEE, REACT.JS, NODE.JS, DJANGO</span>
+                                <span class="skills__name">C#, C, C++, ASP.NET, JEE, REACT.JS, NODE.JS, DJANGO, Android, Swift</span>
                             </div>
                             <div class="skills__bar skills__html">   
                             </div>
                         </div>
                         <div class="skills__data">
                             <div class="skills__names">
-                                <span class="skills__name">LARAVEL, EXPRESS, REACT NATIVE, FLUTTER, IONIC, SPRING</span>
+                                <span class="skills__name">LARAVEL, EXPRESS, REACT NATIVE, FLUTTER, Azure, AWS, Docker</span>
                             </div>
                             <div class="skills__bar skills__html">
                             </div>
                         </div>
                         <div class="skills__data">
                             <div class="skills__names">
-                                <span class="skills__name">MS SQL, MySQL, FIREBASE, MONGODB, MS AZURE, AWS</span>
+                                <span class="skills__name">MS SQL, MySQL, FIREBASE, MONGODB, Wordpress, Jomlah, Megento</span>
                             </div>
                             <div class="skills__bar skills__html">
                             </div>
