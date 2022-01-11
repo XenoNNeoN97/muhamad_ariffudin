@@ -45,7 +45,7 @@
                 <div class="home__data">
                     <h1 class="home__title">Hi,<br>I'am <span class="home__title-color">Ariffudin</span><br> Software Engineer</h1>
 
-                    <a href="assets/resume/Ariffudin.pdf" target="_blank" class="button">Resume</a>
+                    <a href="assets/resume/Muhamad-Ariffudin.pdf" target="_blank" class="button">Resume</a>
                 </div>
 
                 <div class="home__social">
@@ -82,27 +82,27 @@
                     <div class="skills__container bd-grid">
                         <div class="skills__data">
                             <div>
-                                <p class= "skills__icon" h3>SRG Asia Pacific</h3></p>
+                                <p class= "skills__icon" h3>Alphacore Technology</h3></p>
                                 <span class="skills__names">Kuala Lumpur - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
-                                    Sep 2020 - Present
+                                    Sep 2021 - Present
                                 </div>
                                 <div class="skills__bar skills__html">   
                                 </div>  
                             </div>
                             <div>
-                                <span class="skills__percentage">1 Year</span>  
+                                <span class="skills__percentage">5 Month</span>  
                             </div> 
                         </div>
 
                         <div class="skills__data">
                             <div>
-                                <p class= "skills__icon" h3>Freelance</h3></p>
+                                <p class= "skills__icon" h3>SRG Asia Pacific</h3></p>
                                 <span class="skills__names">Kuala Lumpur - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
-                                    Jun 2020 - Present
+                                    Sep 2020 - Aug 2021
                                 </div>
                                 <div class="skills__bar skills__html">   
                                 </div>   
@@ -120,13 +120,13 @@
                                 <span class="skills__names">Kuala Lumpur - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
-                                    Sep 2019 - Jun 2020
+                                    Sep 2019 - May 2020
                                 </div>
                                 <div class="skills__bar skills__html">   
                                 </div>
                             </div>
                             <div>
-                                <span class="skills__percentage">10 Month</span>  
+                                <span class="skills__percentage">9 Month</span>  
                             </div>
                         </div>
                         
@@ -136,13 +136,13 @@
                                 <span class="skills__names">Kuala Lumpur - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
-                                    Jun 2019 - Sep 2019
+                                    Jun 2019 - Aug 2019
                                 </div>
                                 <div class="skills__bar skills__html">   
                                 </div> 
                             </div>
                             <div>
-                                <span class="skills__percentage">4 Month</span>
+                                <span class="skills__percentage">3 Month</span>
                             </div>    
                         </div>
                     </div>
@@ -170,13 +170,13 @@
                                 <span class="skills__names">Johor Bahru - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
-                                    Feb 2017 - May 2017
+                                    Feb 2017 - Apr 2017
                                 </div>
                                 <div class="skills__bar skills__html">   
                                 </div>   
                             </div>
                             <div>
-                                <span class="skills__percentage">4 Month</span>
+                                <span class="skills__percentage">3 Month</span>
                             </div>
                         </div>
                     </div>
