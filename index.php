@@ -255,7 +255,7 @@
                     </div>
                     <div class="work__img">
                         <a href="http://alphacoretech.net/" target="_blank">
-                        <img src="assets/img/work6.jpg" alt=""></a>
+                        <img src="assets/img/work7.jpg" alt=""></a>
                     </div>
                 </div>
             </section>
