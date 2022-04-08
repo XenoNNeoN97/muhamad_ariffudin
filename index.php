@@ -92,7 +92,7 @@
                                 </div>  
                             </div>
                             <div>
-                                <span class="skills__percentage">5 Month</span>  
+                                <span class="skills__percentage"></span>  
                             </div> 
                         </div>
 
@@ -108,7 +108,7 @@
                                 </div>   
                             </div>
                             <div>
-                                <span class="skills__percentage">1 Year</span>  
+                                <span class="skills__percentage"></span>  
                             </div>
                         </div>
                     </div>
@@ -126,7 +126,7 @@
                                 </div>
                             </div>
                             <div>
-                                <span class="skills__percentage">9 Month</span>  
+                                <span class="skills__percentage"></span>  
                             </div>
                         </div>
                         
@@ -142,7 +142,7 @@
                                 </div> 
                             </div>
                             <div>
-                                <span class="skills__percentage">3 Month</span>
+                                <span class="skills__percentage"></span>
                             </div>    
                         </div>
                     </div>
@@ -160,7 +160,7 @@
                                 </div>   
                             </div>
                             <div>
-                                <span class="skills__percentage">1 Year</span>
+                                <span class="skills__percentage"></span>
                             </div>
                         </div>
 
@@ -176,7 +176,7 @@
                                 </div>   
                             </div>
                             <div>
-                                <span class="skills__percentage">3 Month</span>
+                                <span class="skills__percentage"></span>
                             </div>
                         </div>
                     </div>
@@ -254,7 +254,7 @@
                         <img src="assets/img/work5.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
-                        <a href="https://www.w3schools.com" target="_blank">
+                        <a href="http://alphacoretech.net/" target="_blank">
                         <img src="assets/img/work6.jpg" alt=""></a>
                     </div>
                 </div>
