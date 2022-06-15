@@ -116,7 +116,7 @@
                     <div class="skills__container bd-grid"> 
                         <div class="skills__data">
                             <div>
-                                <p class= "skills__icon" h3>George Healthcare Berhad</h3></p>
+                                <p class= "skills__icon" h3>George Healthcare Bhd</h3></p>
                                 <span class="skills__names">Kuala Lumpur - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
@@ -132,7 +132,7 @@
                         
                         <div class="skills__data">
                             <div>
-                                <p class= "skills__icon" h3>George Healthcare Berhad [intern]</h3></p>
+                                <p class= "skills__icon" h3>George Healthcare Bhd [intern]</h3></p>
                                 <span class="skills__names">Kuala Lumpur - Malaysia</span>
                                 <div class="skills__calendar">
                                     <i class="uil uil-calendar-alt skills__icon"></i>
@@ -250,7 +250,7 @@
                         <img src="assets/img/work4.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
-                        <a href="https://my.dokter4u.com/" target="_blank">
+                        <a href="https://www.srgasia.com.my/" target="_blank">
                         <img src="assets/img/work5.jpg" alt=""></a>
                     </div>
                     <div class="work__img">
@@ -283,7 +283,7 @@
                 <a href="https://www.instagram.com/" target="_blank" class="footer__icon"><i class='bx bxl-instagram' ></i></a>
                 <a href="https://twitter.com/home?lang=en" target="_blank" class="footer__icon"><i class='bx bxl-twitter' ></i></a>
             </div>
-            <p>&#169; 2021 copyright all right reserved</p>
+            <p>&#169; 2022 copyright all right reserved</p>
         </footer>
 
 
